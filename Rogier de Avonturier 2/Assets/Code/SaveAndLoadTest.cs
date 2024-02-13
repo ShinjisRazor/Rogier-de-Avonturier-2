@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class SaveAndLoadTest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TMP_InputField inputField;
+
+
+
+    public void saveData()
     {
-        
+        PlayerPrefs.SetString("input", inputField.text);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void loadData() 
     {
-        
+        inputField.text = PlayerPrefs.GetString("input");
+    }
+
+    public void DeleteData()
+    {
+        PlayerPrefs.DeleteKey("input");
     }
 }

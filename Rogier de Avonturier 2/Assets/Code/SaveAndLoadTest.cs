@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SaveAndLoadTest : MonoBehaviour
 {
     public TMP_InputField inputField;
-    public ItemsTest itemtest;
+    
 
 
 
@@ -15,15 +15,12 @@ public class SaveAndLoadTest : MonoBehaviour
     {
         PlayerPrefs.SetString("input", inputField.text);
         print("gay");
-        PlayerPrefs.SetInt("item", itemtest.item);
-        print("luk");
     }
 
 
     public void loadData() 
     {
         inputField.text = PlayerPrefs.GetString("input");
-        itemtest.item = PlayerPrefs.GetInt("item");
     }
 
     public void DeleteData()
@@ -33,9 +30,5 @@ public class SaveAndLoadTest : MonoBehaviour
     public void Start()
     {
         
-    }
-    public void startgame()
-    {
-        itemtest.item = PlayerPrefs.GetInt("items");
     }
 }

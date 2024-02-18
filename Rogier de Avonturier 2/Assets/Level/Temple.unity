@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 5960289}
   - component: {fileID: 5960288}
   - component: {fileID: 5960293}
+  - component: {fileID: 5960294}
   m_Layer: 0
   m_Name: speler
   m_TagString: Untagged
@@ -160,6 +161,7 @@ MonoBehaviour:
   hor: 0
   movedir: {x: 0, y: 0, z: 0}
   speed: 3
+  jumpforce: 5
 --- !u!136 &5960289
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -268,6 +270,33 @@ MonoBehaviour:
   bodyRot: {x: 0, y: 0, z: 0}
   headRot: {x: 0, y: 0, z: 0}
   rotSpeed: 100
+--- !u!54 &5960294
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960287}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1099522234
 GameObject:
   m_ObjectHideFlags: 0

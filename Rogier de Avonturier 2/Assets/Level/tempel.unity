@@ -181,6 +181,7 @@ MonoBehaviour:
   mouseY: 0
   bodyRot: {x: 0, y: 0, z: 0}
   headRot: {x: 0, y: 0, z: 0}
+  rotSpeed: 300
 --- !u!136 &942462952
 CapsuleCollider:
   m_ObjectHideFlags: 0

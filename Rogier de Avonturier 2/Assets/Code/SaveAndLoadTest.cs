@@ -14,7 +14,7 @@ public class SaveAndLoadTest : MonoBehaviour
     public void saveData()
     {
         PlayerPrefs.SetString("input", inputField.text);
-        print("gay");
+        print("Hoi");
     }
 
 

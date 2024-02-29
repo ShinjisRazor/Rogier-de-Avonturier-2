@@ -1,31 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class TotumScript : MonoBehaviour
 {
-    public GameObject totum1;
+    public GameObject[] totumArray;
     public float rotateamount;
+    public int rotateecount;
+    public Raycast raycast;
+    public string currenttotum;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-           
-        
+        print(rotateecount);
+        currenttotum = raycast.currenttotum;
     }
-    public void Totumrot() 
+
+    public void Totumrot()
     {
-        totum1.transform.Rotate(Vector3.up * rotateamount);
-        if (Mathf.Approximately(totum1.transform.eulerAngles.y, 90f))
+        if (totumArray.Length > 0)
+
         {
-            Debug.Log("Rotation is at 90 degrees!");
+            GameObject.Find(currenttotum).transform.Rotate(Vector3.up * rotateamount);
+
+            if (Mathf.Approximately(GameObject.Find(currenttotum).transform.eulerAngles.y, 90f))
+            {
+                rotateecount += 1;
+            }
+            else
+            {
+                if (rotateecount > 0)
+                {
+                    rotateecount -= 1;
+                }
+            }
         }
     }
 }

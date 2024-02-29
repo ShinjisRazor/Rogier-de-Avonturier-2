@@ -6,9 +6,9 @@ using UnityEngine;
 public class Raycast : MonoBehaviour
 {
     public RaycastHit hit;
-    public TotumScript Totumscript;
     public float raycastlenght;
     public string currenttotum;
+    public TotumScript totumscrit;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +24,13 @@ public class Raycast : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("Totem"))
                 {
-                     currenttotum = hit.transform.gameObject.name;
-                    if (Totumscript != null)
+                    if (totumscrit != null)
                     {
-                        Totumscript.Totumrot();
-                            
+                        print("ucc");
+                        currenttotum = hit.transform.gameObject.name;
+                        totumscrit.Totumrot();
                     }
+                    
                 }
             }
         }

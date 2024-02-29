@@ -2,11 +2,8 @@ using UnityEngine;
 
 public class TotumScript : MonoBehaviour
 {
-    public GameObject[] totumArray;
-    public float rotateamount;
-    public int rotateecount;
-    public Raycast raycast;
-    public string currenttotum;
+    public Raycast raycastscript;
+    public string currenttotem;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,28 +13,23 @@ public class TotumScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(rotateecount);
-        currenttotum = raycast.currenttotum;
+        if (raycastscript != null)
+        {
+            currenttotem = raycastscript.currenttotum;
+        }
     }
 
     public void Totumrot()
     {
-        if (totumArray.Length > 0)
-
+        if (currenttotem != null)
         {
-            GameObject.Find(currenttotum).transform.Rotate(Vector3.up * rotateamount);
+            GameObject totemObject = GameObject.Find(currenttotem);
 
-            if (Mathf.Approximately(GameObject.Find(currenttotum).transform.eulerAngles.y, 90f))
+            if (totemObject != null)
             {
-                rotateecount += 1;
-            }
-            else
-            {
-                if (rotateecount > 0)
-                {
-                    rotateecount -= 1;
-                }
+                totemObject.transform.Rotate(Vector3.up * 90f);
             }
         }
     }
 }
+

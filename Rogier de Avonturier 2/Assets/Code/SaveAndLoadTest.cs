@@ -11,16 +11,23 @@ public class SaveAndLoadTest : MonoBehaviour
 
 
 
-    public void saveData()
+    public void SaveData()
     {
         PlayerPrefs.SetString("input", inputField.text);
-        print("Hoi");
     }
 
 
-    public void loadData() 
+    public void LoadData() 
     {
-        inputField.text = PlayerPrefs.GetString("input");
+        if(PlayerPrefs.HasKey("input"))
+        {
+            inputField.text = PlayerPrefs.GetString("input");
+       
+        }
+        else
+        {
+            print("Not accesible save data");
+        }
     }
 
     public void DeleteData()

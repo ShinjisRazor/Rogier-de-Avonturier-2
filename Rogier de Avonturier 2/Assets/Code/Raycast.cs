@@ -24,9 +24,9 @@ public class Raycast : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("Totem"))
                 {
+                    
                     if (totumscrit != null)
                     {
-                        print("ucc");
                         currenttotum = hit.transform.gameObject.name;
                         totumscrit.Totumrot();
                     }

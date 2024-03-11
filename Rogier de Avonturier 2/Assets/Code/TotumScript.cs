@@ -28,34 +28,42 @@ public class TotumScript : MonoBehaviour
 
     public void Totumrot()
     {
-        if (placed != null && placed.rigtplace == false)
+        if (placed.rigtplace == false)
         {
-            if (currenttotem != null)
+            if (placed != null && placed.rigtplace == false)
             {
-                GameObject totemObject = GameObject.Find(currenttotem);
-
-                if (totemObject != null)
+                if (currenttotem != null)
                 {
-                    totemObject.transform.Rotate(Vector3.up * 90f);
+                    GameObject totemObject = GameObject.Find(currenttotem);
 
-                    if (Mathf.Approximately(totemObject.transform.eulerAngles.y, rightplace))
+                    if (totemObject != null)
                     {
-                        if (score != null && !rightplaced)
+                        totemObject.transform.Rotate(Vector3.up * 90f);
+
+                        if (Mathf.Approximately(totemObject.transform.eulerAngles.y, rightplace))
                         {
-                            rightplaced = true;
-                            score.scrorecount(currenttotem);
+                            if (score != null && !rightplaced)
+                            {
+                                rightplaced = true;
+                                score.scrorecount(currenttotem);
+                            }
                         }
-                    }
-                    else
-                    {
-                        if (rightplaced)
+                        else
                         {
-                            rightplaced = false;
-                            score.Descore(currenttotem);
+                            if (rightplaced)
+                            {
+                                rightplaced = false;
+                                score.Descore(currenttotem);
+                            }
                         }
                     }
                 }
             }
+            else 
+            {
+                print("lief");
+            }
+
         }
     }
 }

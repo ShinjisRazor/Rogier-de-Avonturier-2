@@ -14,6 +14,10 @@ public class TotumPuzzlescore : MonoBehaviour
     void Update()
     {
         print(score);
+        if (score == 3)
+        {
+            rigtplace = true;
+        }
     }
 
     public void scrorecount(string totemName)

@@ -6,31 +6,63 @@ public class TotumPuzzlescore : MonoBehaviour
 {
     public int score;
     public bool rigtplace;
-    public TotumScript totum;
-    // Start is called before the first frame update
-    void Start()
-    {
-        rigtplace = false;
-    }
+    private bool isTotumPlacedCorrectly1 = false;
+    private bool isTotumPlacedCorrectly2 = false;
+    private bool isTotumPlacedCorrectly3 = false;
 
     // Update is called once per frame
     void Update()
     {
         print(score);
-        if (score == 3)
+    }
+
+    public void scrorecount(string totemName)
+    {
+        if (totemName == "totum" && !isTotumPlacedCorrectly1)
         {
-            rigtplace = true;
+            score += 1;
+            isTotumPlacedCorrectly1 = true;
+        }
+        else if (totemName == "totum (1)" && !isTotumPlacedCorrectly2)
+        {
+            score += 1;
+            isTotumPlacedCorrectly2 = true;
+        }
+        else if (totemName == "totum (2)" && !isTotumPlacedCorrectly3)
+        {
+            score += 1;
+            isTotumPlacedCorrectly3 = true;
         }
     }
-    public void scrorecount()
+
+    public void Descore(string totemName)
     {
-        score += 1;
-    }
-    public void Descore()
-    {
-        if (score > 0 && totum.rightplaced == false)
+        if (score > 0)
         {
-            score -= 1;
-        }       
+            if (totemName == "totum" && !isTotumPlacedCorrectly1 == false)
+            {
+                score -= 1;
+            }
+            else if (totemName == "totum (1)" && !isTotumPlacedCorrectly2 == false)
+            {
+                score -= 1;
+            }
+            else if (totemName == "totum (2)" && !isTotumPlacedCorrectly3 == false)
+            {
+                score -= 1;
+            }
+        }
+
+        ResetTotumPlacementFlags(totemName);
+    }
+
+    private void ResetTotumPlacementFlags(string totemName)
+    {
+        if (totemName == "totum")
+            isTotumPlacedCorrectly1 = false;
+        else if (totemName == "totum (1)")
+            isTotumPlacedCorrectly2 = false;
+        else if (totemName == "totum (2)")
+            isTotumPlacedCorrectly3 = false;
     }
 }

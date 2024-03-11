@@ -23,8 +23,7 @@ public class Raycast : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastlenght))
             {
                 if (hit.transform.gameObject.CompareTag("Totem"))
-                {
-                    
+                {                   
                     if (totumscrit != null)
                     {
                         currenttotum = hit.transform.gameObject.name;

@@ -7,7 +7,6 @@ public class TotumScript : MonoBehaviour
     public TotumPuzzlescore score;
     public string currenttotem;
     public float rightplace;
-    public TotumPuzzlescore placed;
     public bool rightplaced;
 
     // Start is called before the first frame update
@@ -28,9 +27,9 @@ public class TotumScript : MonoBehaviour
 
     public void Totumrot()
     {
-        if (placed.rigtplace == false)
+        if (score.rigtplace == false)
         {
-            if (placed != null && placed.rigtplace == false)
+            if (score != null && score.rigtplace == false)
             {
                 if (currenttotem != null)
                 {

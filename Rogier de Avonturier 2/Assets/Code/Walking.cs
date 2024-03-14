@@ -34,7 +34,6 @@ public class walking : MonoBehaviour
     {
         if (Mathf.Abs(rb.velocity.y) < 0.001f)
         {
-            // Apply an impulse force in the upward direction
             rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
         }
     }

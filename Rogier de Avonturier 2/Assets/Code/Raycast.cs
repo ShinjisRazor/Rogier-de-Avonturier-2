@@ -8,6 +8,7 @@ public class Raycast : MonoBehaviour
     public float raycastlenght;
     public string currenttotum;
     public TotumScript totumscrit;
+    public bool hasban;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,11 @@ public class Raycast : MonoBehaviour
                         totumscrit.Totumrot();
                     }
                     
+                }
+                if (hit.transform.gameObject.CompareTag("Banaan"))
+                {
+                    Destroy(hit.transform.gameObject);
+                    hasban = true;
                 }
             }
         }

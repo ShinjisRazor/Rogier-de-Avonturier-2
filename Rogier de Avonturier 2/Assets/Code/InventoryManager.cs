@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject inventoryMenu;
     private bool menuActivated;
+    
     void Start()
     {
        
@@ -14,14 +15,19 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Inventory") && menuActivated)
+        if(Input.GetButtonDown("Inventory")) 
         {
-            inventoryMenu.SetActive(false);
-        }
+            if(menuActivated)
+            {
+                inventoryMenu.SetActive(false);
+                menuActivated = false;
+            }
+            else
+            {
+                inventoryMenu.SetActive(true);
+                menuActivated = true;
 
-        else if (Input.GetButtonDown("Inventory") && !menuActivated)
-        {
-            inventoryMenu.SetActive(true);
+            }
         }
     }
 }

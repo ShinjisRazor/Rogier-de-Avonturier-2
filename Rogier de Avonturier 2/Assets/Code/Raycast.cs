@@ -8,7 +8,7 @@ public class Raycast : MonoBehaviour
     public float raycastlenght;
     public string currenttotum;
     public TotumScript totumscrit;
-    public bool hasban;
+    public string currentitem;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,18 +23,17 @@ public class Raycast : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastlenght))
             {
                 if (hit.transform.gameObject.CompareTag("Totem"))
-                {                   
+                {
                     if (totumscrit != null)
                     {
                         currenttotum = hit.transform.gameObject.name;
                         totumscrit.Totumrot();
                     }
-                    
+
                 }
-                if (hit.transform.gameObject.CompareTag("Banaan"))
+                if (hit.transform.gameObject.CompareTag("items"))
                 {
-                    Destroy(hit.transform.gameObject);
-                    hasban = true;
+                    currentitem = hit.transform.gameObject.name;
                 }
             }
         }

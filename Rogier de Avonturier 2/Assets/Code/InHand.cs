@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class InHand : MonoBehaviour
 {
-    public GameObject banana;
     public Raycast rayscrit;
+    public GameObject inhanditem;
+    public GameObject hand;
     // Start is called before the first frame update
     void Start()
     {
-        banana.SetActive(false);
+     
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(rayscrit.currentitem); 
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
             if (rayscrit != null)
             {
-                if (rayscrit.hasban == true)
-                {
-                    banana.SetActive (true);
-                }
+              inhanditem = GameObject.Find(rayscrit.currentitem);
+                Instantiate(inhanditem, hand.transform);
             }
         }
+        print (inhanditem);
     }
 }

@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Totem
-  - Banaan
+  - Item
+  - items
   layers:
   - Default
   - TransparentFX

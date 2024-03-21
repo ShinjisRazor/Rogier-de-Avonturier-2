@@ -12,7 +12,7 @@ public class TotumScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Initialize rightplaced to false
+        
         rightplaced = false;
     }
 
@@ -22,6 +22,10 @@ public class TotumScript : MonoBehaviour
         if (raycastscript != null)
         {
             currenttotem = raycastscript.currenttotum;
+        }
+        else
+        {
+            Debug.Log("Raycastscriptnotnull");
         }
     }
 
@@ -58,11 +62,6 @@ public class TotumScript : MonoBehaviour
                     }
                 }
             }
-            else 
-            {
-                print("lief");
-            }
-
         }
     }
 }

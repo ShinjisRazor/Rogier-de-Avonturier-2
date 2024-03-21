@@ -19,11 +19,13 @@ public class InventoryManager : MonoBehaviour
         {
             if(menuActivated)
             {
+                Time.timeScale = 1; 
                 inventoryMenu.SetActive(false);
                 menuActivated = false;
             }
             else
             {
+                Time.timeScale = 0;
                 inventoryMenu.SetActive(true);
                 menuActivated = true;
 

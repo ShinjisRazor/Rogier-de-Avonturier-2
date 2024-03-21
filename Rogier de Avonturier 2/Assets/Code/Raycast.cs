@@ -13,10 +13,21 @@ public class Raycast : MonoBehaviour
     public TotumScript totumscrit;
     public string currentitem;
     public string spawnloc;
+    private InventoryManager inventoryManager;
+
+    [SerializeField]
+    private string itemName;
+
+    [SerializeField]
+    private int quantity;
+
+    [SerializeField]
+    private Sprite sprite;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        inventoryManager = GameObject.Find("Inventory Canvas").GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame
@@ -24,7 +35,7 @@ public class Raycast : MonoBehaviour
     {
         print(currentitem);
         print(spawnloc);
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("Interact"))
         {
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastlenght))
             {
@@ -37,9 +48,11 @@ public class Raycast : MonoBehaviour
                     }
 
                 }
-                if (hit.transform.gameObject.CompareTag("items"))
+                if (hit.transform.gameObject.CompareTag("Items"))
                 {
                     currentitem = hit.transform.gameObject.name;
+                    inventoryManager.AddItem(itemName, quantity, sprite);
+                    Destroy(gameObject);
                 }
                 if (hit.transform.gameObject.CompareTag("Placeloc"))
                 {

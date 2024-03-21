@@ -22,6 +22,7 @@ public class Item : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        inventoryManager.AddItem(itemName, quantity, sprite);
+        Destroy(gameObject);
     }
 }

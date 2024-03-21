@@ -51,14 +51,11 @@ public class TotumScript : MonoBehaviour
                                 score.scrorecount(currenttotem);
                             }
                         }
-                        else
+                        else if (rightplaced)
                         {
-                            if (rightplaced)
-                            {
-                                rightplaced = false;
-                                score.Descore(currenttotem);
-                            }
-                        }
+                            rightplaced = false;
+                            score.Descore(currenttotem);
+                        }                      
                     }
                 }
             }

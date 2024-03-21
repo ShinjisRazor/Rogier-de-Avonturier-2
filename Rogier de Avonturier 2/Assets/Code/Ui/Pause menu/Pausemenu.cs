@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -19,7 +20,12 @@ public class Pausemenu : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            
+            pause.enabled = true;
+
         }
+    }
+     public void exitpressed()
+    {
+        
     }
 }

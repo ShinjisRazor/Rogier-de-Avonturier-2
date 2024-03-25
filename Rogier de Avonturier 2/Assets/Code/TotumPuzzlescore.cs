@@ -6,9 +6,9 @@ public class TotumPuzzlescore : MonoBehaviour
 {
     public int score;
     public bool rigtplace;
-    private bool isTotumPlacedCorrectly1 = false;
-    private bool isTotumPlacedCorrectly2 = false;
-    private bool isTotumPlacedCorrectly3 = false;
+    public bool isTotumPlacedCorrectly1 = false;
+    public bool isTotumPlacedCorrectly2 = false;
+    public bool isTotumPlacedCorrectly3 = false;
 
     // Update is called once per frame
     void Update()

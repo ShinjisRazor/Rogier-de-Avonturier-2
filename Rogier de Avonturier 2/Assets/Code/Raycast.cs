@@ -13,6 +13,7 @@ public class Raycast : MonoBehaviour
     public TotumScript totumscrit;
     public string currentitem;
     public string spawnloc;
+    public Insert insert;
     private InventoryManager inventoryManager;
 
     [SerializeField]
@@ -48,7 +49,7 @@ public class Raycast : MonoBehaviour
                     }
 
                 }
-                if (hit.transform.gameObject.CompareTag("Items"))
+                if (hit.transform.gameObject.CompareTag("items"))
                 {
                     currentitem = hit.transform.gameObject.name;
                     inventoryManager.AddItem(itemName, quantity, sprite);
@@ -57,14 +58,7 @@ public class Raycast : MonoBehaviour
                 if (hit.transform.gameObject.CompareTag("Placeloc"))
                 {
                     spawnloc = hit.transform.gameObject.name;
-                    if (currentitem == ("Banaan") && spawnloc == ("Loc1") )
-                    {
-                        Instantiate(GameObject.Find(currentitem), GameObject.Find(spawnloc).transform);
-                    }
-                    if (currentitem == ("LegoMan") && spawnloc == ("Loc2"))
-                    {
-                        Instantiate(GameObject.Find(currentitem), GameObject.Find(spawnloc).transform);
-                    }
+                    insert.insert();
                 }
             }
         }

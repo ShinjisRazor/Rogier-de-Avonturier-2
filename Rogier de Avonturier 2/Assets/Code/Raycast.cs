@@ -15,7 +15,6 @@ public class Raycast : MonoBehaviour
     public string spawnloc;
     public Insert insert;
     private InventoryManager inventoryManager;
-
     [SerializeField]
     private string itemName;
 

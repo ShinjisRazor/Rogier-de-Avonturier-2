@@ -25,7 +25,7 @@ public class TotumScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Raycastscriptnotnull");
+            Debug.Log("Raycastscriptnull");
         }
     }
 

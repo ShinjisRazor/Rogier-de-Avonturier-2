@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
-   public Transform head;
+    public Transform head;
     public Transform body;
 
     public float mouseX;

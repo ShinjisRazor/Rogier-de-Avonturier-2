@@ -17,7 +17,7 @@ public class TotumPuzzlescore : MonoBehaviour
         if (score == 3)
         {
             rigtplace = true;
-            print("woef");
+            print("Done");
         }
     }
 

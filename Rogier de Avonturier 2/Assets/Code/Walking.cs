@@ -7,9 +7,12 @@ public class walking : MonoBehaviour
     public float vert;
     public float hor;
     public Vector3 movedir;
-    public float speed;
+    public float walkspeed;
+    public float sprintspeed;
     private Rigidbody rb;
     public float jumpforce = 5f;
+    public bool isSprinting;
+    public Transform camerarot;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,11 @@ public class walking : MonoBehaviour
         hor = Input.GetAxis("Horizontal");
         movedir.z = vert;
         movedir.x = hor;
-        transform.Translate(movedir * Time.deltaTime * speed);
+        {         
+            isSprinting = Input.GetKey(KeyCode.LeftShift);
+            transform.Translate(movedir * Time.deltaTime * (isSprinting ? sprintspeed : walkspeed));
+        }
+
         if (Input.GetButtonDown("Jump"))
         {
             Jump();       

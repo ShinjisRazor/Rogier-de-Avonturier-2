@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 3999557394322259803}
   - component: {fileID: 2088883501715073447}
   - component: {fileID: 403131132753159662}
-  - component: {fileID: 7497539849145727987}
   - component: {fileID: 2439736976228181594}
   - component: {fileID: 653339209730652030}
   - component: {fileID: 4975838643063509420}
   - component: {fileID: 8927008634959232139}
-  - component: {fileID: 5324548792401677131}
+  - component: {fileID: 1895011578273170558}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -35,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6369265242078849193}
@@ -115,25 +114,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7497539849145727987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258189530122336720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b2fd444c5631bf4b965912c73e2280e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 6369265242078849193}
-  body: {fileID: 2565234022719470051}
-  mouseX: 0
-  mouseY: 0
-  bodyRot: {x: 0, y: 0, z: 0}
-  headRot: {x: 0, y: 0, z: 0}
-  rotSpeed: 300
 --- !u!114 &2439736976228181594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,8 +129,11 @@ MonoBehaviour:
   vert: 0
   hor: 0
   movedir: {x: 0, y: 0, z: 0}
-  speed: 5
+  walkspeed: 3
+  sprintspeed: 5
   jumpforce: 5
+  isSprinting: 0
+  camerarot: {fileID: 6369265242078849193}
 --- !u!54 &653339209730652030
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -175,9 +158,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &4975838643063509420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +176,12 @@ MonoBehaviour:
   raycastlenght: 100
   currenttotum: 0
   totumscrit: {fileID: 0}
-  hasban: 0
+  currentitem: 
+  spawnloc: 
+  insert: {fileID: 1895011578273170558}
+  itemName: 
+  quantity: 0
+  sprite: {fileID: 0}
 --- !u!114 &8927008634959232139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +196,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   rigtplace: 0
---- !u!114 &5324548792401677131
+  isTotumPlacedCorrectly1: 0
+  isTotumPlacedCorrectly2: 0
+  isTotumPlacedCorrectly3: 0
+--- !u!114 &1895011578273170558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,12 +208,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3258189530122336720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c299bed50d2104b4d8ad2b814cab8a84, type: 3}
+  m_Script: {fileID: 11500000, guid: 6625191415ce6ae43bd01c596b5f25f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 0}
-  banana: {fileID: 0}
-  rayscrit: {fileID: 4975838643063509420}
+  ray: {fileID: 4975838643063509420}
+  place1: 0
+  place2: 0
 --- !u!1 &4449929669936927874
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,8 +346,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7137654709575926122}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09359995, y: -0, z: -0, w: 0.9956099}
-  m_LocalPosition: {x: 0, y: 1.44, z: -2.7}
+  m_LocalRotation: {x: 0.32326594, y: -0.00000003256508, z: 0.000000011124474, w: 0.9463082}
+  m_LocalPosition: {x: 0, y: 5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -393,11 +384,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

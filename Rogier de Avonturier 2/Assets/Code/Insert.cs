@@ -33,7 +33,7 @@ public class Insert : MonoBehaviour
             if (place2 == false)
             {
                 Instantiate(GameObject.Find(ray.currentitem), GameObject.Find(ray.spawnloc).transform.position, transform.rotation);
-                place2 = true;
+                place2 = true;  
             }
         }
     }

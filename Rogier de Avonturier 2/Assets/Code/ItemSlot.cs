@@ -1,16 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public string itemName;
+    public int quantity;
+    public Sprite itemSprite;
+    public bool filled;
+
+    [SerializeField]
+    private TMP_Text quantityText;
+
+    [SerializeField]
+    private Image 
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

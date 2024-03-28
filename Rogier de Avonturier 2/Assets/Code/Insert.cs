@@ -7,6 +7,8 @@ public class Insert : MonoBehaviour
     public Raycast ray;
     public bool place1;
     public bool place2;
+    public GameObject door;
+    public int placed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,10 @@ public class Insert : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (placed == 2)
+        {
+            Destroy(door);
+        }
     }
     public void insert()
     {
@@ -26,6 +31,7 @@ public class Insert : MonoBehaviour
             {
                 Instantiate(GameObject.Find(ray.currentitem), GameObject.Find(ray.spawnloc).transform.position, transform.rotation);
                 place1 = true;
+                placed += 1;
             }
         }
         if (ray.currentitem == ("LegoMan") && ray.spawnloc == ("Loc2"))
@@ -33,7 +39,8 @@ public class Insert : MonoBehaviour
             if (place2 == false)
             {
                 Instantiate(GameObject.Find(ray.currentitem), GameObject.Find(ray.spawnloc).transform.position, transform.rotation);
-                place2 = true;  
+                place2 = true; 
+                placed += 1;
             }
         }
     }

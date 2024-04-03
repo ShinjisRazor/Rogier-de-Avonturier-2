@@ -24,12 +24,14 @@ public class InventoryManager : MonoBehaviour
                 Time.timeScale = 1; 
                 inventoryMenu.SetActive(false);
                 menuActivated = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 Time.timeScale = 0;
                 inventoryMenu.SetActive(true);
                 menuActivated = true;
+                Cursor.lockState = CursorLockMode.Confined;
 
             }
         }      

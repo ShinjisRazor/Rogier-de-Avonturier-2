@@ -15,6 +15,7 @@ public class Rotation : MonoBehaviour
     public Vector3 headRot;
 
     public float rotSpeed;
+    public float maxHeadRotation = 40f;
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +26,7 @@ public class Rotation : MonoBehaviour
         body.Rotate(bodyRot * rotSpeed * Time.deltaTime);
 
         headRot.x = -mouseY;
-        head.Rotate(headRot * rotSpeed * Time.deltaTime);
+        float newHeadRotX = Mathf.Clamp(head.localEulerAngles.x + -mouseY * rotSpeed * Time.deltaTime, -maxHeadRotation, maxHeadRotation);
+        head.localRotation = Quaternion.Euler(newHeadRotX, head.localEulerAngles.y, head.localEulerAngles.z);
     }
 }

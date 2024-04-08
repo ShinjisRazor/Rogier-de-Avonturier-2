@@ -44,7 +44,6 @@ public class Raycast : MonoBehaviour
                         currenttotum = hit.transform.gameObject.name;
                         totumscrit.Totumrot();
                     }
-
                 }
                 if (hit.transform.gameObject.CompareTag("items"))
                 {

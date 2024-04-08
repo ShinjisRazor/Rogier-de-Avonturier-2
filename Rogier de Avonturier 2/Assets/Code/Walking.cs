@@ -34,14 +34,10 @@ public class walking : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            Jump();       
-        }
-    }
-    void Jump()
-    {
-        if (Mathf.Abs(rb.velocity.y) < 0.001f)
-        {
-            rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
+            if (Mathf.Abs(rb.velocity.y) < 0.001f)
+            {
+                rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
+            }
         }
     }
 }

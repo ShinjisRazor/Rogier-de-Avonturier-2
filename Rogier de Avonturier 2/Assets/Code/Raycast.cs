@@ -33,8 +33,6 @@ public class Raycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(currentitem);
-        print(spawnloc);
         if (Input.GetButtonDown("Interact"))
         {
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastlenght))

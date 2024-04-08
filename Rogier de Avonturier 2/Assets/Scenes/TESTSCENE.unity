@@ -1495,6 +1495,7 @@ MonoBehaviour:
   bodyRot: {x: 0, y: 0, z: 0}
   headRot: {x: 0, y: 0, z: 0}
   rotSpeed: 200
+  maxHeadRotation: 40
 --- !u!114 &1082586447 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1895011578273170558, guid: d88f80b3b20b9cb4d87fe38f8d384e1e,

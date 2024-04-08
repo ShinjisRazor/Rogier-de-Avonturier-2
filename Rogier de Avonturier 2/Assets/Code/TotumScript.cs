@@ -37,7 +37,7 @@ public class TotumScript : MonoBehaviour
             {
                 if (currenttotem != null)
                 {
-                    GameObject totemObject = GameObject.Find(currenttotem);
+                    GameObject totemObject = GameObject.Find(raycastscript.currenttotum);
 
                     if (totemObject != null)
                     {

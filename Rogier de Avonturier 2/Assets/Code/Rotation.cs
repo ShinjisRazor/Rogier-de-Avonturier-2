@@ -2,31 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Rotation : MonoBehaviour
 {
-    public Transform head;
-    public Transform body;
+    public float speedV = 2.0f;
+    public float speedH = 2.0f;
 
-    public float mouseX;
-    public float mouseY;
+    private float rotationX = 0.0f;
+    private float rotationY = 0.0f;
 
-    public Vector3 bodyRot;
-    public Vector3 headRot;
-
-    public float rotSpeed;
-    public float maxHeadRotation = 40f;
+    private float minValue = -30f;
+    private float maxValue = 30f;
     // Update is called once per frame
     void Update()
     {
-        mouseX = Input.GetAxis("Mouse X");
-        mouseY = Input.GetAxis("Mouse Y");
+        rotationY += speedV * Input.GetAxis("Mouse X");
+        rotationX -= speedH * Input.GetAxis("Mouse Y");
 
-        bodyRot.y = mouseX;
-        body.Rotate(bodyRot * rotSpeed * Time.deltaTime);
+        rotationX = Mathf.Clamp(rotationX, minValue, maxValue);
 
-        headRot.x = -mouseY;
-        float newHeadRotX = Mathf.Clamp(head.localEulerAngles.x + -mouseY * rotSpeed * Time.deltaTime, -maxHeadRotation, maxHeadRotation);
-        head.localRotation = Quaternion.Euler(newHeadRotX, head.localEulerAngles.y, head.localEulerAngles.z);
+        transform.eulerAngles = new Vector3(rotationX, rotationY, 0);
     }
 }

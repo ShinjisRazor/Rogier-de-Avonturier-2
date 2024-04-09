@@ -16,6 +16,7 @@ public class RotX : MonoBehaviour
         mouseY = Input.GetAxis("Mouse Y");
         headRot.x = -mouseY * rotSpeed * Time.deltaTime;
 
+        //  haalt de huidige rotatie van het hoofd op   
         Vector3 currentRotation = head.localRotation.eulerAngles;
 
         head.Rotate(headRot);

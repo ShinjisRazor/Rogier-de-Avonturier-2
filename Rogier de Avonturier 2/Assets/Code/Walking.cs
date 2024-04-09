@@ -12,7 +12,6 @@ public class walking : MonoBehaviour
     private Rigidbody rb;
     public float jumpforce = 5f;
     public bool isSprinting;
-    public Transform camerarot;
     // Start is called before the first frame update
     void Start()
     {

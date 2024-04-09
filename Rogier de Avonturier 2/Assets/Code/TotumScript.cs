@@ -23,21 +23,15 @@ public class TotumScript : MonoBehaviour
         {
             currenttotem = raycastscript.currenttotum;
         }
-        else
-        {
-            Debug.Log("Raycastscriptnull");
-        }
     }
 
     public void Totumrot()
     {
-        if (score.rigtplace == false)
-        {
             if (score != null && score.rigtplace == false)
             {
                 if (currenttotem != null)
                 {
-                    GameObject totemObject = GameObject.Find(raycastscript.currenttotum);
+                    GameObject totemObject = GameObject.Find(currenttotem);
 
                     if (totemObject != null)
                     {
@@ -59,7 +53,6 @@ public class TotumScript : MonoBehaviour
                     }
                 }
             }
-        }
     }
 }
 

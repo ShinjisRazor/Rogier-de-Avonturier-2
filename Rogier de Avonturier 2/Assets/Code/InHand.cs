@@ -16,12 +16,12 @@ public class InHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(rayscrit.currentitem); 
+        print(rayscrit.currentItem); 
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
             if (rayscrit != null)
             {
-              inhanditem = GameObject.Find(rayscrit.currentitem);
+              inhanditem = GameObject.Find(rayscrit.currentItem);
                 Instantiate(inhanditem, hand.transform);
             }
         }

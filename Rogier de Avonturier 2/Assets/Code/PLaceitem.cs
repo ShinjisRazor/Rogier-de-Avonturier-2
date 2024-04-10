@@ -16,7 +16,7 @@ public class PLaceitem : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.P))
         {
-            print(rayscript.currentitem);
+            print(rayscript.currentItem);
         }
     }
 }

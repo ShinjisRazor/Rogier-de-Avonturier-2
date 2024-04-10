@@ -1,58 +1,57 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TotumScript : MonoBehaviour
+public class TotemScript : MonoBehaviour
 {
-    public Raycast raycastscript;
+    public Raycast raycastScript;
     public TotumPuzzlescore score;
-    public string currenttotem;
-    public float rightplace;
-    public bool rightplaced;
+    public string currentTotem;
+    public float rightPlace;
+    public bool rightPlaced;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        rightplaced = false;
+        rightPlaced = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (raycastscript != null)
+        if (raycastScript != null)
         {
-            currenttotem = raycastscript.currenttotum;
+            currentTotem = raycastScript.currentTotem;
         }
     }
 
-    public void Totumrot()
+    public void TotemRot()
     {
-            if (score != null && score.rigtplace == false)
+        if (score != null && score.rigtplace == false)
+        {
+            if (currentTotem != null)
             {
-                if (currenttotem != null)
+                GameObject totemObject = GameObject.Find(currentTotem);
+
+                if (totemObject != null)
                 {
-                    GameObject totemObject = GameObject.Find(currenttotem);
+                    totemObject.transform.Rotate(Vector3.up * 90f);
 
-                    if (totemObject != null)
+                    if (Mathf.Approximately(totemObject.transform.eulerAngles.y, rightPlace))
                     {
-                        totemObject.transform.Rotate(Vector3.up * 90f);
-
-                        if (Mathf.Approximately(totemObject.transform.eulerAngles.y, rightplace))
+                        if (score != null && !rightPlaced)
                         {
-                            if (score != null && !rightplaced)
-                            {
-                                rightplaced = true;
-                                score.scrorecount(currenttotem);
-                            }
+                            rightPlaced = true;
+                            score.scorecount(currentTotem);
                         }
-                        else if (rightplaced)
-                        {
-                            rightplaced = false;
-                            score.Descore(currenttotem);
-                        }                      
+                    }
+                    else if (rightPlaced)
+                    {
+                        rightPlaced = false;
+                        score.Descore(currentTotem);
                     }
                 }
             }
+        }
     }
 }
 

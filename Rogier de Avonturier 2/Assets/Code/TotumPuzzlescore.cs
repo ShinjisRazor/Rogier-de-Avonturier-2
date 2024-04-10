@@ -9,6 +9,7 @@ public class TotumPuzzlescore : MonoBehaviour
     public bool isTotumPlacedCorrectly1 = false;
     public bool isTotumPlacedCorrectly2 = false;
     public bool isTotumPlacedCorrectly3 = false;
+    public GameObject door;
 
     // Update is called once per frame
     void Update()
@@ -18,10 +19,11 @@ public class TotumPuzzlescore : MonoBehaviour
         {
             rigtplace = true;
             print("Done");
+            Destroy(door);
         }
     }
 
-    public void scrorecount(string totemName)
+    public void scorecount(string totemName)
     {
         if (totemName == "totum" && !isTotumPlacedCorrectly1)
         {

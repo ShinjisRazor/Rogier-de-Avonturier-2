@@ -8,11 +8,11 @@ using UnityEngine.XR;
 public class Raycast : MonoBehaviour
 {
     public RaycastHit hit;
-    public float raycastlenght;
-    public string currenttotum;
-    public TotumScript totumscrit;
-    public string currentitem;
-    public string spawnloc;
+    public float raycastLength;
+    public string currentTotem;
+    public TotemScript totemScript;
+    public string currentItem;
+    public string spawnLoc;
     public Insert insert;
     private InventoryManager inventoryManager;
     [SerializeField]
@@ -35,25 +35,25 @@ public class Raycast : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact"))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, raycastlenght))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, raycastLength))
             {
                 if (hit.transform.gameObject.CompareTag("Totem"))
                 {
-                    if (totumscrit != null)
+                    if (totemScript != null)
                     {
-                        currenttotum = hit.transform.gameObject.name;
-                        totumscrit.Totumrot();
+                        currentTotem = hit.transform.gameObject.name;
+                        totemScript.TotemRot();
                     }
                 }
                 if (hit.transform.gameObject.CompareTag("items"))
                 {
-                    currentitem = hit.transform.gameObject.name;
+                    currentItem = hit.transform.gameObject.name;
                     inventoryManager.AddItem(itemName, quantity, sprite);
                     Destroy(gameObject);
                 }
                 if (hit.transform.gameObject.CompareTag("Placeloc"))
                 {
-                    spawnloc = hit.transform.gameObject.name;
+                    spawnLoc = hit.transform.gameObject.name;
                     insert.insert();
                 }
             }

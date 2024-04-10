@@ -9,10 +9,11 @@ public class Insert : MonoBehaviour
     public bool place2;
     public GameObject door;
     public int placed;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,24 +24,25 @@ public class Insert : MonoBehaviour
             Destroy(door);
         }
     }
+
     public void insert()
     {
-        if (ray.currentitem == ("Banaan") && ray.spawnloc == ("Loc1"))
+        if (ray.currentItem == "Banaan" && ray.spawnLoc == "Loc1")
         {
-            if (place1 == false)
+            if (!place1)
             {
-                Instantiate(GameObject.Find(ray.currentitem), GameObject.Find(ray.spawnloc).transform.position, transform.rotation);
+                Instantiate(GameObject.Find(ray.currentItem), GameObject.Find(ray.spawnLoc).transform.position, transform.rotation);
                 place1 = true;
-                placed += 1;
+                placed++;
             }
         }
-        if (ray.currentitem == ("LegoMan") && ray.spawnloc == ("Loc2"))
+        if (ray.currentItem == "LegoMan" && ray.spawnLoc == "Loc2")
         {
-            if (place2 == false)
+            if (!place2)
             {
-                Instantiate(GameObject.Find(ray.currentitem), GameObject.Find(ray.spawnloc).transform.position, transform.rotation);
-                place2 = true; 
-                placed += 1;
+                Instantiate(GameObject.Find(ray.currentItem), GameObject.Find(ray.spawnLoc).transform.position, transform.rotation);
+                place2 = true;
+                placed++;
             }
         }
     }

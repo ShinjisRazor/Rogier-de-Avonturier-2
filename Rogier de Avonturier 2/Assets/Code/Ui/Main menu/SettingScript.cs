@@ -51,7 +51,7 @@ public class SettingScript : MonoBehaviour
     {
         
     }
-    private void OnVolumeChanged(float value)
+    public void OnVolumeChanged(float value)
     {
         UpdateVolumeText(value);
 

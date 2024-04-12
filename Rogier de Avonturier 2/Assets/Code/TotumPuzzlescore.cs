@@ -10,6 +10,8 @@ public class TotumPuzzlescore : MonoBehaviour
     public bool isTotumPlacedCorrectly2 = false;
     public bool isTotumPlacedCorrectly3 = false;
     public GameObject door;
+    public AudioClip soundclip;
+
 
     // Update is called once per frame
     void Update()
@@ -19,7 +21,7 @@ public class TotumPuzzlescore : MonoBehaviour
         {
             rigtplace = true;
             print("Done");
-            Destroy(door);
+            Destroy(door.gameObject);
         }
     }
 
@@ -28,16 +30,19 @@ public class TotumPuzzlescore : MonoBehaviour
         if (totemName == "totum" && !isTotumPlacedCorrectly1)
         {
             score += 1;
+            AudioSource.PlayClipAtPoint(soundclip, transform.position);
             isTotumPlacedCorrectly1 = true;
         }
         else if (totemName == "totum (1)" && !isTotumPlacedCorrectly2)
         {
             score += 1;
+            AudioSource.PlayClipAtPoint(soundclip, transform.position);
             isTotumPlacedCorrectly2 = true;
         }
         else if (totemName == "totum (2)" && !isTotumPlacedCorrectly3)
         {
             score += 1;
+            AudioSource.PlayClipAtPoint(soundclip, transform.position);
             isTotumPlacedCorrectly3 = true;
         }
     }

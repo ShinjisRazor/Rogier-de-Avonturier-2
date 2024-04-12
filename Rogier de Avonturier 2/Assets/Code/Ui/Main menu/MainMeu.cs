@@ -28,7 +28,8 @@ public class MainMeu : MonoBehaviour
     }
     public void Onbuttonclick()
     {
-        SceneManager.LoadScene("tempel");
+        SceneManager.LoadScene("tempelbuild");
+        Time.timeScale = 1f;
     }
     public void onopensetting()
     {

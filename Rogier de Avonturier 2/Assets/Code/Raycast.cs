@@ -17,12 +17,11 @@ public class Raycast : MonoBehaviour
     private InventoryManager inventoryManager;
     [SerializeField]
     private string itemName;
-
+    public GameObject door1;
+    public GameObject door2;
     [SerializeField]
     private int quantity;
 
-    [SerializeField]
-    private Sprite sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -45,11 +44,15 @@ public class Raycast : MonoBehaviour
                         totemScript.TotemRot();
                     }
                 }
-                if (hit.transform.gameObject.CompareTag("items"))
+                if (hit.transform.gameObject.CompareTag("Banaan"))
                 {
-                    currentItem = hit.transform.gameObject.name;
-                    inventoryManager.AddItem(itemName, quantity, sprite);
-                    Destroy(gameObject);
+                    Destroy(door1);
+                    Destroy(hit.transform.gameObject);
+                }
+                if (hit.transform.gameObject.CompareTag("LegoMan"))
+                {
+                    Destroy(door2);
+                    Destroy(hit.transform.gameObject);
                 }
                 if (hit.transform.gameObject.CompareTag("Placeloc"))
                 {

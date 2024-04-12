@@ -8,6 +8,7 @@ public class Insert : MonoBehaviour
     public bool place1;
     public bool place2;
     public GameObject door;
+    public GameObject door2;
     public int placed;
 
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class Insert : MonoBehaviour
                 Instantiate(GameObject.Find(ray.currentItem), GameObject.Find(ray.spawnLoc).transform.position, transform.rotation);
                 place1 = true;
                 placed++;
+                Destroy(door);
             }
         }
         if (ray.currentItem == "LegoMan" && ray.spawnLoc == "Loc2")

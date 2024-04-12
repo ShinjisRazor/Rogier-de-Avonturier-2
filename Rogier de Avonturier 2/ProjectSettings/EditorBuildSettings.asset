@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Level/tempel.unity
     guid: 556f1f7acfa17004295411b8e1a4886f
+  - enabled: 1
+    path: Assets/Level/tempelbuild.unity
+    guid: a08e921ba0997954584e5061669d4e84
   m_configObjects: {}
